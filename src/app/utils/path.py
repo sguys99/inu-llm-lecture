@@ -1,0 +1,26 @@
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).parents[3]
+
+CONFIG_PATH = REPO_ROOT / "configs"
+DATA_PATH = REPO_ROOT / "data"
+LOG_PATH = REPO_ROOT / "logs"
+NOTEBOOK_PATH = REPO_ROOT / "notebooks"
+SOURCE_PATH = REPO_ROOT / "src"
+PACKAGE_PATH = SOURCE_PATH / "paper"
+CACHE_PATH = REPO_ROOT / ".cache"
+DEMO_PATH = REPO_ROOT / "demo"
+
+DATA_CONFIG_PATH = CONFIG_PATH / "data.yaml"
+FEATURE_CONFIG_PATH = CONFIG_PATH / "feature.yaml"
+MODEL_CONFIG_PATH = CONFIG_PATH / "model.yaml"
+TRAIN_CONFIG_PATH = CONFIG_PATH / "train.yaml"
+PROMPT_CONFIG_PATH = CONFIG_PATH / "prompt_template"
+
+RAW_DATA_PATH = DATA_PATH / "raw"
+INTERMEDIATE_DATA_PATH = DATA_PATH / "intermediate"
+PROCESSED_DATA_PATH = DATA_PATH / "processed"
+CACHE_EMBEDDING_PATH = CACHE_PATH / "embeddings"
+CACHE_FILE_PATH = CACHE_PATH / "files"
+DEMO_IMG_PATH = DEMO_PATH / "img"
+DOCS_DATA_PATH = DATA_PATH / "docs"

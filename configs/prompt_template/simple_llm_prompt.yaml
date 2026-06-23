@@ -1,0 +1,22 @@
+_type: prompt
+input_variables:
+- context
+- question
+- chat_history
+metadata: null
+name: null
+optional_variables: []
+output_parser: null
+partial_variables: {}
+tags: null
+template: '
+  You are a helpful assistant.
+  Answer all questions to the best of your ability.
+  You must answer in Korean.
+
+
+  History: {chat_history}
+
+  Question: {question}'
+template_format: f-string
+validate_template: false

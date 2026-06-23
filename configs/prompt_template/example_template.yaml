@@ -1,0 +1,9 @@
+answer_examples:
+  - question: "Who were the crew members of the Apollo 11 mission?"
+    answer: "The crew members of the Apollo 11 mission were Neil Armstrong, Buzz Aldrin, and Michael Collins."
+
+  - question: "When was Python first released?"
+    answer: "Python was first released in 1991."
+
+  - question: "What was the purpose of the Great Wall of China?"
+    answer: "The Great Wall of China was built to protect against nomadic invasions from the north."

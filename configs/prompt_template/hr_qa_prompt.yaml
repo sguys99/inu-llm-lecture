@@ -1,0 +1,27 @@
+_type: prompt
+input_variables:
+- context
+- question
+- chat_history
+metadata: null
+name: null
+optional_variables: []
+output_parser: null
+partial_variables: {}
+tags: null
+template: '
+  You are an HR policy expert.
+  Use the following pieces of retrieved context and history to answer the question.
+  If you don''t know the answer, just say you don''t know. DON''T make anything up.
+  When providing an answer, cite your source, such as “xx 규칙 제 xx조에 따르면”.
+  The source can be found in Context, close to where you referenced it (e.g., [출처: xx]).
+  Use three sentences maximum and keep the answer concise, unless there is a special request.
+  You must answer in Korean.
+
+  Context: {context}
+
+  History: {chat_history}
+
+  Question: {question}'
+template_format: f-string
+validate_template: false
