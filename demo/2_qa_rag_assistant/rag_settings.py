@@ -253,7 +253,7 @@ with col13:
                 help="사용할 PDF Loader를 선택하세요.",
                 disabled=(st.session_state["doc_format"] != "pdf"),
             )
-            chunk_size = st.slider("Chunk size", min_value=500, max_value=2000, value=500, step=100)
+            chunk_size = st.slider("Chunk size", min_value=1000, max_value=2000, value=500, step=100)
 
         with c132:
             text_splitter_type = st.selectbox(
@@ -263,7 +263,7 @@ with col13:
             )
             chunk_overlap = st.slider(
                 "Chunk overlap",
-                min_value=20,
+                min_value=100,
                 max_value=200,
                 value=50,
                 step=10,

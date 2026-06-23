@@ -1,7 +1,6 @@
 import streamlit as st
 from dotenv import load_dotenv
 from page_utils import login, logout
-from PIL import Image
 
 load_dotenv()
 
@@ -11,7 +10,7 @@ if "login" not in st.session_state:
 
 st.set_page_config(
     page_title="LFC RAG",
-    page_icon=Image.open("img/lfc-logo-circle.png"),
+    page_icon="img/favicon.svg",
     layout="wide",
 )
 
@@ -59,6 +58,6 @@ else:
 
 
 with st.sidebar:
-    st.image("../img/swasc_logo.png", width=290)
+    st.image("img/inu-signature.png", width=290)
 
 pg.run()

@@ -23,8 +23,39 @@ from app.utils.path import CACHE_EMBEDDING_PATH, CACHE_FILE_PATH, DEMO_IMG_PATH
 
 load_dotenv()
 
-human_avatar = DEMO_IMG_PATH / "user-icon.png"
-ai_avartar = DEMO_IMG_PATH / "agent.png"
+human_avatar = DEMO_IMG_PATH / "man-icon.png"
+ai_avartar = DEMO_IMG_PATH / "inu-logo.png"
+
+# 채팅 버블 안에서 마크다운 제목(#)이 거대한 H1/H2로 렌더링되는 것을 막기 위한 패턴.
+_HEADING_PATTERN = re.compile(r"^[ \t]*#{1,6}[ \t]+(\S.*?)[ \t]*#*$")
+_CODE_FENCE_PATTERN = re.compile(r"^[ \t]*(```|~~~)")
+
+
+def normalize_chat_markdown(text: str) -> str:
+    """
+    채팅 메시지의 마크다운 제목(#, ##, ...)을 볼드(**...**)로 강등하는 함수.
+
+    LLM이 답변을 마크다운 제목으로 시작하면 좁은 채팅 버블 안에서 글자가
+    지나치게 크게 표시되므로, 제목 문법만 볼드로 바꿔 가독성을 유지.
+    단, 코드 블록(```, ~~~) 내부의 `#`(주석 등)은 변환하지 않음.
+
+    Args:
+        text (str): 원본 메시지 문자열.
+
+    Returns:
+        str: 제목이 볼드로 치환된 문자열.
+    """
+    in_fence = False
+    lines = []
+    for line in text.split("\n"):
+        if _CODE_FENCE_PATTERN.match(line):
+            in_fence = not in_fence
+            lines.append(line)
+        elif in_fence:
+            lines.append(line)
+        else:
+            lines.append(_HEADING_PATTERN.sub(r"**\1**", line))
+    return "\n".join(lines)
 
 
 def load_image(image_path: str) -> bytes:
@@ -88,7 +119,7 @@ class ChatCallbackHandler(BaseCallbackHandler):
             **kwargs: 임의의 키워드 인자.
         """
         self.message += token
-        self.message_box.markdown(self.message)
+        self.message_box.markdown(normalize_chat_markdown(self.message))
 
 
 @st.cache_data
@@ -376,7 +407,7 @@ def send_message(message: str, role: str, save: bool = True) -> None:
     avatar_image = load_image(ai_avartar if role == "ai" else human_avatar)
 
     with st.chat_message(role, avatar=avatar_image):
-        st.markdown(message)
+        st.markdown(normalize_chat_markdown(message))
 
     if save:
         save_message(message, role)

@@ -2,16 +2,15 @@ import streamlit as st
 
 st.markdown(
     """
-## LFC On-Premise LLM Service Platform
+## On-premise LLM Service Platform
 ###
 
 
-Welcome to Lotte Fine Chemical RAG service!
+Welcome to LLM Aplication service!
 
 Here are the apps on serving:
 
-- :blue[Single Document Application]
+- :blue[Simple QA Application]
 - :blue[QA Assistant with RAG]
-- :blue[Data Analytics Agent]
 """,
 )

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-labelledby="node-fav-title">
+  <title id="node-fav-title">NODE</title>
+  <!-- 브랜드 캔버스 배경 (라이트/다크 탭 모두에서 식별) -->
+  <rect width="32" height="32" rx="7" fill="#101010"/>
+  <!-- 궤도 링 (두껍게 단순화) -->
+  <circle cx="16" cy="16" r="9.5" fill="none" stroke="#8b949e" stroke-width="2.5"/>
+  <!-- 위성 노드 -->
+  <circle cx="22.7" cy="9.3" r="2.6" fill="#bdbdbd"/>
+  <!-- 중심 허브 (액센트 그린, 확대) -->
+  <circle cx="16" cy="16" r="4.5" fill="#00d992"/>
+</svg>

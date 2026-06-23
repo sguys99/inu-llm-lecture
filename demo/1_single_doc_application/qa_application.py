@@ -7,7 +7,6 @@ from function_utils import (
     display_docx,
     display_pdf,
     embed_file,
-    load_image,
     pain_history,
     send_message,
 )
@@ -23,8 +22,8 @@ load_dotenv()
 
 
 human_avatar = DEMO_IMG_PATH / "man-icon.png"
-ai_avartar = DEMO_IMG_PATH / "lfc-icon.png"
-ai_avatar_image = load_image(ai_avartar)
+ai_avartar = DEMO_IMG_PATH / "inu-logo.png"
+ai_avatar_image = str(ai_avartar)
 
 prompt = load_prompt(PROMPT_CONFIG_PATH / "simple_qa_prompt.yaml", encoding="utf-8")
 
@@ -71,7 +70,7 @@ with st.sidebar:
         )
         chunk_size = st.slider(
             "Chunk size",
-            min_value=500,
+            min_value=1000,
             max_value=2000,
             value=500,
             step=100,
@@ -79,7 +78,7 @@ with st.sidebar:
         )
         chunk_overlap = st.slider(
             "Chunk overlap",
-            min_value=20,
+            min_value=100,
             max_value=200,
             value=50,
             step=10,
@@ -159,7 +158,7 @@ if file:
                 send_message("준비되었습니다. 질문하세요!", "ai", save=False)
                 pain_history()
 
-                with st._bottom:
+                with st.bottom:
                     _, col122 = st.columns([1, 1])
                     with col122:
                         message = st.chat_input("업로드한 파일에 대해서 물어보세요...")

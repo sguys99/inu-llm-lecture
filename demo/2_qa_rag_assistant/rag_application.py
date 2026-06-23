@@ -6,7 +6,6 @@ from function_utils import (
     ChatCallbackHandler,
     display_docx,
     display_pdf,
-    load_image,
     load_retriver,
     pain_history,
     send_message,
@@ -27,8 +26,8 @@ os.makedirs(RAG_LOG_PATH, exist_ok=True)
 delete_incomplete_logs(base_path=RAG_LOG_PATH, required_files=["prompt.yaml", "rag_config.yaml"])
 
 human_avatar = DEMO_IMG_PATH / "man-icon.png"
-ai_avartar = DEMO_IMG_PATH / "lfc-icon.png"
-ai_avatar_image = load_image(ai_avartar)
+ai_avartar = DEMO_IMG_PATH / "inu-logo.png"
+ai_avatar_image = str(ai_avartar)
 
 if "memory" not in st.session_state:
     st.session_state["memory"] = ConversationBufferWindowMemory(
@@ -193,7 +192,7 @@ with col12:
             send_message("준비되었습니다. 질문하세요!", "ai", save=False)
             pain_history()
 
-            with st._bottom:
+            with st.bottom:
                 _, col122 = st.columns([1, 1])
                 with col122:
                     message = st.chat_input("문서 내용에 대해서 물어보세요...")

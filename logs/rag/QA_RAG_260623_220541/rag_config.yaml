@@ -1,0 +1,13 @@
+document_format: pdf
+documents:
+- "\uC548\uC804\uAD00\uB9AC\uAE30\uC900(\uD589\uC815\uC548\uC804\uBD80\uACE0\uC2DC\
+  )(\uC81C2017-1\uD638)(20170726).pdf"
+embedding: voyage-4-lite
+loader:
+  type: directory
+text_splitter:
+  chunk_overlap: 100
+  chunk_size: 1000
+  type: RecursiveCT
+vectorstore:
+  type: FAISS
