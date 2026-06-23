@@ -70,17 +70,17 @@ with st.sidebar:
         )
         chunk_size = st.slider(
             "Chunk size",
-            min_value=1000,
+            min_value=500,
             max_value=2000,
-            value=500,
+            value=1000,
             step=100,
             disabled=st.session_state["simple_qa_on"],
         )
         chunk_overlap = st.slider(
             "Chunk overlap",
-            min_value=100,
+            min_value=20,
             max_value=200,
-            value=50,
+            value=100,
             step=10,
             disabled=st.session_state["simple_qa_on"],
         )

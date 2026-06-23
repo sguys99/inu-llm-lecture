@@ -151,14 +151,10 @@ with col12:
                     options=[
                         "simple_qa_prompt_kor",
                         "simple_qa_prompt",
-                        "hr_qa_prompt_kor",
-                        "hr_qa_prompt",
                     ],
                     index=[
                         "simple_qa_prompt_kor",
                         "simple_qa_prompt",
-                        "hr_qa_prompt_kor",
-                        "hr_qa_prompt",
                     ].index(st.session_state["selected_system_prompt"]),
                     help="사용할 프롬프트를 선택하세요.",
                 )
@@ -187,8 +183,8 @@ with col12:
             with col122:
                 st.session_state["selected_example"] = st.selectbox(
                     label="Example template 선택",
-                    options=["example_template", "hr_example_template"],
-                    index=["example_template", "hr_example_template"].index(
+                    options=["example_template"],
+                    index=["example_template"].index(
                         st.session_state["selected_example"],
                     ),
                     disabled=not use_example_check,
@@ -253,7 +249,7 @@ with col13:
                 help="사용할 PDF Loader를 선택하세요.",
                 disabled=(st.session_state["doc_format"] != "pdf"),
             )
-            chunk_size = st.slider("Chunk size", min_value=1000, max_value=2000, value=500, step=100)
+            chunk_size = st.slider("Chunk size", min_value=500, max_value=2000, value=1000, step=100)
 
         with c132:
             text_splitter_type = st.selectbox(
@@ -263,9 +259,9 @@ with col13:
             )
             chunk_overlap = st.slider(
                 "Chunk overlap",
-                min_value=100,
+                min_value=20,
                 max_value=200,
-                value=50,
+                value=100,
                 step=10,
             )
 

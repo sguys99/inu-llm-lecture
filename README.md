@@ -1,1 +1,1 @@
-# agent-project-template
+# INU LLM Application Lecture
