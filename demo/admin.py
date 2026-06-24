@@ -44,6 +44,12 @@ qa_rag_application = st.Page(
     icon=":material/summarize:",
 )
 
+agentic_rag_application = st.Page(
+    "3_agentic_rag/agentic_rag_application.py",
+    title="Application",
+    icon=":material/account_tree:",
+)
+
 if st.session_state["login"]:
     pg = st.navigation(
         {
@@ -51,6 +57,7 @@ if st.session_state["login"]:
             "0️⃣ Home": [home],
             "1️⃣ 단일문서 어플리케이션": [qa_application],
             "2️⃣ RAG기반 QA 어시스턴트": [qa_rag_settings, qa_rag_application],
+            "3️⃣ Agentic RAG 기반 QA 어시스턴트": [agentic_rag_application],
         },
     )
 else:
