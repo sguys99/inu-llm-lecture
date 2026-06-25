@@ -1,8 +1,12 @@
+from pathlib import Path
+
 import streamlit as st
 from dotenv import load_dotenv
 from page_utils import login, logout
 
 load_dotenv()
+
+IMG_DIR = Path(__file__).parent / "img"
 
 if "login" not in st.session_state:
     st.session_state["login"] = False
@@ -10,7 +14,7 @@ if "login" not in st.session_state:
 
 st.set_page_config(
     page_title="LFC RAG",
-    page_icon="img/favicon.svg",
+    page_icon=str(IMG_DIR / "favicon.svg"),
     layout="wide",
 )
 
@@ -65,6 +69,6 @@ else:
 
 
 with st.sidebar:
-    st.image("img/inu-signature.png", width=290)
+    st.image(str(IMG_DIR / "inu-signature.png"), width=290)
 
 pg.run()
