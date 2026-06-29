@@ -151,10 +151,12 @@ with col12:
                     options=[
                         "simple_qa_prompt_kor",
                         "simple_qa_prompt",
+                        "rag_qa_prompt_kor",
                     ],
                     index=[
                         "simple_qa_prompt_kor",
                         "simple_qa_prompt",
+                        "rag_qa_prompt_kor",
                     ].index(st.session_state["selected_system_prompt"]),
                     help="사용할 프롬프트를 선택하세요.",
                 )
